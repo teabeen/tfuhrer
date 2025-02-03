@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 16px; /* Base size, scales naturally */
+}
+
+body {
+    font-family: "Archivo", sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+    text-align: center;
+}
+
+/* 🔥 Use Clamp for Dynamic Font Sizes */
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Scales perfectly */
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    max-width: 700px;
+    margin: 1rem auto;
+}
+
+a {
+    text-decoration: none;
+    color: cyan;
+}
+
+/* 🔥 Sections Scale Automatically */
+.section {
+    min-height: 100vh; /* Ensures full viewport height */
+    padding: 5vh 5vw;
+}
+
+
+/* 🔥 Responsive Navbar */
+nav {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Adjusts spacing based on screen size */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem; /* Scales better than px */
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* 🔥 Cool Hover Effect */
+.nav-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: cyan;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-item:hover {
+    color: cyan;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* 🔥 Sections Scale Properly */
+.section {
+    height: 100vh; /* Ensures full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 5vw; /* Responsive padding */
+}
+
+/* 🔥 Responsive Font Sizes */
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* Adjusts based on screen size */
+    font-weight: bold;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+p {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    max-width: 700px;
+    margin: 1rem auto;
+}
+
+/* 🔥 Contact Links & Buttons */
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.contact-links a {
+    text-decoration: none;
+    color: cyan;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid cyan;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🔥 Glowing Effect on Hover */
+.contact-links a:hover {
+    background-color: cyan;
+    color: black;
+    box-shadow: 0 0 10px cyan, 0 0 40px cyan;
+}
+
+/* 🔥 Responsive Floating Social Icons */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contact-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(40px, 5vw, 60px);
+    height: clamp(40px, 5vw, 60px);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🔥 Floating Effect */
+.contact-icons a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px cyan;
+}
+
+/* 🔥 SVG Icons Adjust Properly */
+.contact-icons svg {
+    width: clamp(25px, 4vw, 35px);
+    height: clamp(25px, 4vw, 35px);
+    fill: white;
+    transition: fill 0.3s ease;
+}
+
+.contact-icons a:hover svg {
+    fill: cyan;
+}
+
+/* 🔥 Media Queries for Small Screens */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.8rem;
+    }
+
+    .nav-item {
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 10vw;
+    }
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    20% { transform: rotate(15deg); }
+    40% { transform: rotate(-10deg); }
+    60% { transform: rotate(15deg); }
+    80% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+#wave {
+    display: inline-block;
+    transform-origin: bottom right;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    font-size: 1.5rem;
+    padding: 10px 0;
+    border-left: 4px solid cyan; 
+    padding-left: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+ul li:hover {
+    color: cyan;
+    border-left-color: white;
+    transform: translateX(5px);
+}
+
+
+/* mobile stuff*/
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack items */
+        gap: 1rem;
+        padding: 1rem;
+        width: 95%;
+    }
+
+    .nav-item {
+        font-size: 1rem; /* Slightly smaller text */
+    }
+
+    .section {
+        padding: 10vw; /* Extra padding so content isn’t cramped */
+    }
+
+    .contact-links {
+        flex-direction: column; /* Stack buttons on mobile */
+    }
+}
+
+
+/* Projects listing*/
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 10px 15px;
+    border-left: 4px solid cyan;
+    transition: all 0.3s ease-in-out;
+}
+
+.project-list li:hover {
+    color: cyan;
+    border-left-color: white;
+    transform: translateX(5px);
+}
+
+/* styling the icons */
+.icons {
+    display: flex;
+    gap: 8px;
+}
+
+.icons img {
+    height: 25px;
+    width: auto;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5)); /* Cool glow effect */
+}
+
+/* Paragraphs for extra info */
+.project-list p {
+    margin: 5px 0 0 0;
+    font-size: 1rem;
+    color: #aaa;
+}
